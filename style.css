@@ -248,3 +248,270 @@ html {
 .card:hover img {
     opacity: 1;
 }
+
+/* Timeline Section */
+
+.timeline-section {
+    background: #000;
+    padding: 150px 0;
+    color: white;
+    text-align: center;
+}
+
+.timeline-wrapper {
+    overflow: hidden; /* hides scrollbar visually */
+}
+
+.timeline-container {
+    display: flex;
+    gap: 60px;
+    padding: 80px 60px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+}
+
+.timeline-container::-webkit-scrollbar {
+    display: none;
+}
+
+.timeline-item {
+    min-width: 300px;
+    flex-shrink: 0;
+
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+
+    scroll-snap-align: center;
+    transition: 0.4s ease;
+}
+
+.timeline-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    opacity: 0.75;
+    transition: 0.4s ease;
+}
+
+.timeline-item h3 {
+    font-size: 26px;
+    margin: 20px 20px 10px;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 1px #ffffff;
+}
+
+.timeline-item p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0 20px 20px;
+}
+
+.timeline-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.timeline-item:hover img {
+    opacity: 1;
+}
+.timeline-item img {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0));
+}
+
+/* Agencies Section */
+
+.agencies-section {
+    background: #000;
+    padding: 150px 60px;
+    color: white;
+    text-align: center;
+}
+
+.agencies-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.agency-card {
+    width: 260px;
+    padding: 40px 25px;
+
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+
+    transition: 0.4s ease;
+}
+
+.agency-card img {
+    /* height: auto; */
+    width: 150px;
+    margin-bottom: 20px;
+    align-items: center;
+    /* filter: brightness(0) invert(1); */
+}
+
+.agency-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 1px #ffffff;
+}
+
+.agency-card p {
+    font-display: auto;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.agency-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+/* Future Section */
+
+.future-section {
+    background: #000;
+    padding: 160px 60px;
+    color: white;
+    text-align: center;
+}
+
+.future-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.future-card {
+    width: 320px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.future-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    opacity: 0.75;
+    transition: 0.4s ease;
+}
+
+.future-card h3 {
+    font-size: 20px;
+    margin: 25px 20px 10px;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 1px #ffffff;
+}
+
+.future-card p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0 20px 25px;
+}
+
+.future-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.future-card:hover img {
+    opacity: 1;
+}
+
+.future-quote {
+    margin-top: 80px;
+    font-size: 18px;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Footer Section */
+
+.footer {
+    background: #000;
+    border-top: 1px solid #222;
+    padding: 80px 60px 30px;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.footer-left h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 1px #ffffff;
+}
+
+.footer-left p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.footer-links h4 {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: white;
+    text-shadow:
+        0 0 5px #ffffff;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
