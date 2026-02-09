@@ -503,6 +503,15 @@ html {
 }
 
 /* mobile responsive */
+@media (max-width: 768px) {
+
+    .hero {
+        background-attachment: scroll; /* remove fixed */
+        background-position: center center;
+    }
+
+}
+
 
 @media (max-width: 576px) {
 
@@ -530,7 +539,7 @@ html {
     /* .cards-container {
         flex-direction: column;
         align-items: center;
-        gap: 30px;
+        gap: 30px;ch
     }
 
     .card {
@@ -617,13 +626,18 @@ html {
 /* Image styling */
 .moon-bg {
     position: absolute;
-    inset: 0;              /* replaces top/right */
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 1;
+    transform: scale(1.05);
+    transition: transform 3s ease;
 }
 
+.moon-hero:hover .moon-bg {
+    transform: scale(1);
+}
 
 /* Content */
 .moon-hero-content {
@@ -635,20 +649,315 @@ html {
 
 /* Title */
 .moon-hero h1 {
-    font-size: 100px;
-    letter-spacing: 5px;
-    margin-bottom: 30px;
+    font-size: 110px;
+    letter-spacing: 8px;
     text-shadow:
-        0 0 8px #ffffff,
-        0 0 15px #ffffff;
+        0 0 10px #ffffff,
+        0 0 30px rgba(255,255,255,0.8);
 }
+
 
 /* Paragraph */
 .moon-hero p {
-    font-size: 18px;
+     font-size: 24px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 2s ease forwards;
+    animation-delay: 0.5s;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 1px #ffffff,
+        0 0 1px #ffffff,
+        0 0 1px #b3b7ba;
+}
+
+/* ======================
+   MOON MISSIONS SECTION
+====================== */
+
+.moon-missions {
+    background: #000;
+    padding: 140px 0 120px;
+    color: white;
+    text-align: center;
+}
+
+.moon-missions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.moon-mission-card {
+    background: rgba(17,17,17,0.85);
+    border: 1px solid #222;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s ease;
+    backdrop-filter: blur(6px);
+}
+
+.moon-mission-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: 0.4s ease;
+}
+
+.moon-mission-card h3 {
+    margin: 25px 20px 10px;
+    font-size: 20px;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 1px #ffffff;
+}
+
+.moon-mission-card p {
+    margin: 0 20px 25px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.moon-mission-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.3),
+        0 0 40px rgba(255,255,255,0.15);
+}
+
+.moon-mission-card:hover img {
+    opacity: 1;
+}
+
+.moon-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        #000 100%
+    );
+    z-index: 2;
+}
+
+/* =========================
+   MOON TIMELINE (CENTERED)
+========================= */
+
+.moon-timeline {
+    background: #000;
+    padding: 180px 0;
+    color: white;
+    text-align: center;
+    
+}
+
+.timeline-vertical {
+    max-width: 900px;
+    margin: 120px auto 0;
+    position: relative;
+}
+
+/* Vertical line centered */
+.timeline-vertical::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+    bottom: 40px;
+    width: 3px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.2),
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.2)
+    );
+    box-shadow: 0 0 12px rgba(255,255,255,0.5);
+}
+
+/* Timeline block */
+.timeline-block {
+    position: relative;
+    width: 50%;
+    padding: 40px 60px;
+}
+
+/* Left side blocks */
+.timeline-block:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+/* Right side blocks */
+.timeline-block:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* Glowing dots */
+.timeline-block::before {
+    content: "";
+    position: absolute;
+    top: 60px;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px #ffffff,
+        0 0 25px rgba(255,255,255,0.7);
+}
+
+/* Dot alignment */
+.timeline-block:nth-child(odd)::before {
+    right: -10px;
+}
+
+.timeline-block:nth-child(even)::before {
+    left: -10px;
+}
+
+/* Year styling */
+.timeline-block h3 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    text-shadow:
+        0 0 8px #ffffff,
+        0 0 20px rgba(255,255,255,0.6);
+}
+
+/* Description */
+.timeline-block p {
+    font-size: 15px;
+    color: #bbb;
+    line-height: 1.7;
+    max-width: 420px;
+}
+.timeline-block::before {
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px #fff; }
+    50% { box-shadow: 0 0 25px #fff; }
+    100% { box-shadow: 0 0 10px #fff; }
+}
+
+
+/* Moon Facts Section */
+
+.moon-facts {
+    background: #000;
+    padding: 160px 0;
+    text-align: center;
+    color: white;
+}
+
+/* Section Title */
+.moon-facts h2 {
+    font-size: 48px;
+    margin-bottom: 80px;
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 8px #ffffff,
+        0 0 20px rgba(255,255,255,0.7);
+}
+
+/* Facts Container */
+.facts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 260px);
+    justify-content: center;   /* THIS centers the whole grid */
+    gap: 50px;
+}
+
+
+
+/* Individual Card */
+.fact-card {
+    width: 260px;
+    padding: 50px 30px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 20px;
+    transition: 0.4s ease;
+}
+
+/* Main Number */
+.fact-card h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px #ffffff,
+        0 0 25px rgba(255,255,255,0.8);
+}
+
+/* Description */
+.fact-card p {
+    font-size: 15px;
     color: #ccc;
     line-height: 1.6;
 }
+
+/* Hover Glow */
+.fact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.6);
+}
+.moon-future {
+    background: url("images/moonfuture.jpg") no-repeat center center/cover;
+    height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.moon-future-overlay {
+    background: rgba(0,0,0,0.75);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.moon-future-content {
+    text-align: center;
+    max-width: 700px;
+    color: white;
+}
+
+.moon-future h2 {
+    font-size: 64px;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+    text-shadow:
+        0 0 12px #ffffff,
+        0 0 35px rgba(255,255,255,0.8);
+}
+
+.moon-future p {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.7;
+}
+
 
 /* mars */
 .mars-hero {
