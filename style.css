@@ -958,6 +958,67 @@ html {
     line-height: 1.7;
 }
 
+/* mobile responsive  */
+@media (max-width: 768px) {
+
+    /* HERO */
+    .moon-hero {
+        padding: 0 25px;
+        padding-top: 120px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .moon-hero h1 {
+        font-size: 48px;
+        letter-spacing: 2px;
+    }
+
+    .moon-hero p {
+        font-size: 15px;
+    }
+
+    /* TIMELINE BECOMES SINGLE COLUMN */
+    .timeline-vertical::before {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-block {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 20px;
+        text-align: left !important;
+        left: 0 !important;
+    }
+
+    .timeline-block::before {
+        left: 8px !important;
+        right: auto !important;
+    }
+
+    /* FACTS */
+    .fact-card {
+        width: 90%;
+    }
+
+    /* FUTURE SECTION */
+    .moon-future {
+        height: auto;
+        padding: 100px 20px;
+    }
+
+    .moon-future h2 {
+        font-size: 36px;
+        letter-spacing: 3px;
+    }
+
+    .moon-future p {
+        font-size: 15px;
+    }
+
+}
+
 
 /* mars */
 .mars-hero {
