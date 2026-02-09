@@ -610,45 +610,45 @@ html {
 }
 
 
-/* moon page */
+/* =========================
+   CATEGORY HERO
+========================= */
 
-.moon-hero {
+.category-hero {
     position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
     padding: 0 100px;
-    /* padding-top: 120px; */
     overflow: hidden;
     background: #000;
 }
 
-/* Image styling */
-.moon-bg {
+.category-bg {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 1;
-    transform: scale(1.05);
-    transition: transform 3s ease;
+    animation: slowZoom 10s ease-in-out infinite alternate;
 }
-
-.moon-hero:hover .moon-bg {
+@keyframes slowZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.15); }
+}
+.category-hero:hover .category-bg {
     transform: scale(1);
 }
 
-/* Content */
-.moon-hero-content {
+.category-hero-content {
     position: relative;
     z-index: 3;
     max-width: 500px;
     color: white;
 }
 
-/* Title */
-.moon-hero h1 {
+.category-hero h1 {
     font-size: 110px;
     letter-spacing: 8px;
     text-shadow:
@@ -656,10 +656,8 @@ html {
         0 0 30px rgba(255,255,255,0.8);
 }
 
-
-/* Paragraph */
-.moon-hero p {
-     font-size: 24px;
+.category-hero p {
+    font-size: 24px;
     opacity: 0;
     transform: translateY(10px);
     animation: fadeUp 2s ease forwards;
@@ -671,25 +669,37 @@ html {
         0 0 1px #b3b7ba;
 }
 
-/* ======================
-   MOON MISSIONS SECTION
-====================== */
+.category-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+    z-index: 2;
+}
 
-.moon-missions {
+
+/* =========================
+   CATEGORY MISSIONS
+========================= */
+
+.category-missions {
     background: #000;
     padding: 140px 0 120px;
     color: white;
     text-align: center;
 }
 
-.moon-missions-grid {
+.missions-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
     margin-top: 80px;
 }
 
-.moon-mission-card {
+.mission-card {
     background: rgba(17,17,17,0.85);
     border: 1px solid #222;
     border-radius: 20px;
@@ -698,7 +708,7 @@ html {
     backdrop-filter: blur(6px);
 }
 
-.moon-mission-card img {
+.mission-card img {
     width: 100%;
     height: 220px;
     object-fit: cover;
@@ -706,56 +716,39 @@ html {
     transition: 0.4s ease;
 }
 
-.moon-mission-card h3 {
+.mission-card h3 {
     margin: 25px 20px 10px;
     font-size: 20px;
-    text-shadow:
-        0 0 5px #ffffff,
-        0 0 1px #ffffff;
+    text-shadow: 0 0 5px #ffffff;
 }
 
-.moon-mission-card p {
+.mission-card p {
     margin: 0 20px 25px;
     font-size: 14px;
     color: #ccc;
 }
 
-.moon-mission-card:hover {
+.mission-card:hover {
     transform: translateY(-12px) scale(1.02);
     box-shadow:
         0 0 20px rgba(255,255,255,0.3),
         0 0 40px rgba(255,255,255,0.15);
 }
 
-.moon-mission-card:hover img {
+.mission-card:hover img {
     opacity: 1;
 }
 
-.moon-hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 250px;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0%,
-        #000 100%
-    );
-    z-index: 2;
-}
 
 /* =========================
-   MOON TIMELINE (CENTERED)
+   CATEGORY TIMELINE
 ========================= */
 
-.moon-timeline {
+.category-timeline {
     background: #000;
     padding: 180px 0;
     color: white;
     text-align: center;
-    
 }
 
 .timeline-vertical {
@@ -764,7 +757,6 @@ html {
     position: relative;
 }
 
-/* Vertical line centered */
 .timeline-vertical::before {
     content: "";
     position: absolute;
@@ -782,26 +774,22 @@ html {
     box-shadow: 0 0 12px rgba(255,255,255,0.5);
 }
 
-/* Timeline block */
 .timeline-block {
     position: relative;
     width: 50%;
     padding: 40px 60px;
 }
 
-/* Left side blocks */
 .timeline-block:nth-child(odd) {
     left: 0;
     text-align: right;
 }
 
-/* Right side blocks */
 .timeline-block:nth-child(even) {
     left: 50%;
     text-align: left;
 }
 
-/* Glowing dots */
 .timeline-block::before {
     content: "";
     position: absolute;
@@ -810,12 +798,9 @@ html {
     height: 20px;
     background: #ffffff;
     border-radius: 50%;
-    box-shadow:
-        0 0 10px #ffffff,
-        0 0 25px rgba(255,255,255,0.7);
+    animation: pulse 2.5s infinite ease-in-out;
 }
 
-/* Dot alignment */
 .timeline-block:nth-child(odd)::before {
     right: -10px;
 }
@@ -824,7 +809,6 @@ html {
     left: -10px;
 }
 
-/* Year styling */
 .timeline-block h3 {
     font-size: 36px;
     margin-bottom: 15px;
@@ -834,15 +818,11 @@ html {
         0 0 20px rgba(255,255,255,0.6);
 }
 
-/* Description */
 .timeline-block p {
     font-size: 15px;
     color: #bbb;
     line-height: 1.7;
     max-width: 420px;
-}
-.timeline-block::before {
-    animation: pulse 2.5s infinite ease-in-out;
 }
 
 @keyframes pulse {
@@ -852,39 +832,35 @@ html {
 }
 
 
-/* Moon Facts Section */
+/* =========================
+   CATEGORY FACTS
+========================= */
 
-.moon-facts {
+.category-facts {
     background: #000;
     padding: 160px 0;
     text-align: center;
     color: white;
 }
 
-/* Section Title */
-.moon-facts h2 {
+.category-facts h2 {
     font-size: 48px;
     margin-bottom: 80px;
     letter-spacing: 3px;
-
     text-shadow:
         0 0 8px #ffffff,
         0 0 20px rgba(255,255,255,0.7);
 }
 
-/* Facts Container */
 .facts-container {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, 260px);
-    justify-content: center;   /* THIS centers the whole grid */
+    justify-content: center;
     gap: 50px;
 }
 
-
-
-/* Individual Card */
 .fact-card {
     width: 260px;
     padding: 50px 30px;
@@ -894,42 +870,42 @@ html {
     transition: 0.4s ease;
 }
 
-/* Main Number */
 .fact-card h3 {
     font-size: 32px;
     margin-bottom: 20px;
     letter-spacing: 2px;
-
-    color: #ffffff;
-
     text-shadow:
         0 0 10px #ffffff,
         0 0 25px rgba(255,255,255,0.8);
 }
 
-/* Description */
 .fact-card p {
     font-size: 15px;
     color: #ccc;
-    line-height: 1.6;
 }
 
-/* Hover Glow */
 .fact-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 25px rgba(255,255,255,0.6);
 }
-.moon-future {
-    background: url("images/moonfuture.jpg") no-repeat center center/cover;
+
+
+/* =========================
+   CATEGORY FUTURE
+========================= */
+
+.category-future {
     height: 90vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    background-position: center;
 }
 
-.moon-future-overlay {
-    background: rgba(0,0,0,0.75);
+.future-overlay {
+    background: transparent;
     width: 100%;
     height: 100%;
     display: flex;
@@ -937,13 +913,13 @@ html {
     justify-content: center;
 }
 
-.moon-future-content {
+.future-content {
     text-align: center;
     max-width: 700px;
     color: white;
 }
 
-.moon-future h2 {
+.category-future h2 {
     font-size: 64px;
     letter-spacing: 6px;
     margin-bottom: 30px;
@@ -952,33 +928,52 @@ html {
         0 0 35px rgba(255,255,255,0.8);
 }
 
-.moon-future p {
+.category-future p {
     font-size: 18px;
     color: #ccc;
-    line-height: 1.7;
 }
 
-/* mobile responsive  */
+.category-future::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.85)
+    );
+}
+
+.future-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 768px) {
 
-    /* HERO */
-    .moon-hero {
+    .category-hero {
         padding: 0 25px;
         padding-top: 120px;
         height: auto;
         min-height: 100vh;
     }
 
-    .moon-hero h1 {
+    .category-hero h1 {
         font-size: 48px;
         letter-spacing: 2px;
     }
 
-    .moon-hero p {
+    .category-hero p {
         font-size: 15px;
     }
 
-    /* TIMELINE BECOMES SINGLE COLUMN */
     .timeline-vertical::before {
         left: 20px;
         transform: none;
@@ -997,481 +992,21 @@ html {
         right: auto !important;
     }
 
-    /* FACTS */
     .fact-card {
         width: 90%;
     }
 
-    /* FUTURE SECTION */
-    .moon-future {
+    .category-future {
         height: auto;
         padding: 100px 20px;
     }
 
-    .moon-future h2 {
+    .category-future h2 {
         font-size: 36px;
         letter-spacing: 3px;
     }
 
-    .moon-future p {
+    .category-future p {
         font-size: 15px;
     }
-
-}
-
-
-/* mars */
-/* ======================
-   MARS HERO
-====================== */
-
-.mars-hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 100px;
-    /* padding-top: 120px; */
-    overflow: hidden;
-    background: #000;
-}
-
-.mars-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    transform: scale(1.05);
-    transition: transform 6s ease;
-}
-
-.mars-hero:hover .mars-bg {
-    transform: scale(1);
-}
-
-.mars-hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    color: white;
-}
-
-.mars-hero h1 {
-    font-size: 110px;
-    letter-spacing: 8px;
-    color: #dccaca;
-
-    text-shadow:
-        0 0 15px #d46e5f,
-        0 0 40px rgba(255,59,31,0.8);
-}
-
-.mars-hero p {
-    font-size: 18px;
-    color: #ddd;
-    line-height: 1.7;
-}
-.mars-hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0%,
-        #000 100%
-    );
-    z-index: 2;
-}
-
-/* ======================
-   MARS MISSIONS
-====================== */
-
-.mars-missions {
-    background: #000;
-    padding: 160px 0;
-    text-align: center;
-    color: white;
-}
-
-.mars-missions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 280px);
-    justify-content: center;
-    gap: 50px;
-    margin-top: 80px;
-}
-
-.mars-mission-card {
-    background: #111;
-    border: 1px solid #000000;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: 0.5s ease;
-}
-
-.mars-mission-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    opacity: 0.85;
-    transition: 0.4s ease;
-}
-
-.mars-mission-card:hover {
-    transform: translateY(-12px);
-    box-shadow:
-        0 0 25px rgba(255,59,31,0.6),
-        0 0 45px rgba(255,59,31,0.3);
-}
-
-.mars-mission-card:hover img {
-    opacity: 1;
-}
-
-.mars-mission-card h3 {
-    margin: 25px 20px 10px;
-    color: #f6f6f6;
-    text-shadow:
-        0 0 15px #d46e5f,
-        0 0 40px rgba(255,59,31,0.8);
-}
-
-.mars-mission-card p {
-    margin: 0 20px 25px;
-    font-size: 14px;
-    color: #ccc;
-}
-
-/* =========================
-MARS TIMELINE
-========================= */
-
-.mars-timeline {
-    background: #000;
-    padding: 180px 0;
-    color: white;
-    text-align: center;
-}
-
-.mars-timeline-vertical {
-    max-width: 900px;
-    margin: 120px auto 0;
-    position: relative;
-}
-
-/* Red vertical energy line */
-.mars-timeline-vertical::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 40px;
-    bottom: 40px;
-    width: 3px;
-    background: linear-gradient(
-        to bottom,
-        rgba(255,59,31,0.2),
-        rgba(255,59,31,0.9),
-        rgba(255,59,31,0.2)
-    );
-    box-shadow: 0 0 15px rgba(255,59,31,0.7);
-}
-
-/* Timeline blocks */
-.mars-timeline-block {
-    position: relative;
-    width: 50%;
-    padding: 40px 60px;
-}
-
-/* Left side */
-.mars-timeline-block:nth-child(odd) {
-    left: 0;
-    text-align: right;
-}
-
-/* Right side */
-.mars-timeline-block:nth-child(even) {
-    left: 50%;
-    text-align: left;
-}
-
-/* Red glowing nodes */
-.mars-timeline-block::before {
-    content: "";
-    position: absolute;
-    top: 60px;
-    width: 20px;
-    height: 20px;
-    background: #ff3b1f;
-    border-radius: 50%;
-    box-shadow:
-        0 0 25px rgba(255,59,31,0.6),
-        0 0 45px rgba(255,59,31,0.3);
-}
-
-/* Align nodes */
-.mars-timeline-block:nth-child(odd)::before {
-    right: -10px;
-}
-
-.mars-timeline-block:nth-child(even)::before {
-    left: -10px;
-}
-
-/* Year */
-.mars-timeline-block h3 {
-    font-size: 34px;
-    margin-bottom: 15px;
-    color: #ffffff;
-    text-shadow:
-        0 0 15px #d46e5f,
-        0 0 40px rgba(255,59,31,0.8);
-}
-
-/* Description */
-.mars-timeline-block p {
-    font-size: 15px;
-    color: #ccc;
-    line-height: 1.7;
-    max-width: 420px;
-}
-
-/* =========================
-   MARS FACTS
-========================= */
-
-.mars-facts {
-    background: #000;
-    padding: 160px 0;
-    text-align: center;
-    color: white;
-}
-
-.mars-facts-grid {
-    margin-top: 80px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 280px);
-    justify-content: center;
-    gap: 50px;
-}
-
-/* Card */
-.mars-fact-card {
-    background: #111;
-    border: 1px solid #2a0f0f;
-    border-radius: 20px;
-    padding: 50px 30px;
-    transition: 0.5s ease;
-    justify-content: center;
-}
-
-/* Number / Main Text */
-.mars-fact-card h3 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #ffffff;
-    text-shadow:
-        0 0 15px #d46e5f,
-        0 0 40px rgba(255,59,31,0.8);
-}
-
-/* Description */
-.mars-fact-card p {
-    font-size: 15px;
-    color: #ccc;
-    line-height: 1.6;
-}
-
-/* Hover Effect */
-.mars-fact-card:hover {
-    transform: translateY(-12px);
-    box-shadow:
-        0 0 25px rgba(255,59,31,0.6),
-        0 0 45px rgba(255,59,31,0.3);
-}
-
-/* =========================
-   MARS FUTURE SECTION
-========================= */
-
-.mars-future {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    background: #000;
-}
-
-.mars-future-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.05);
-    transition: transform 8s ease;
-}
-
-.mars-future:hover .mars-future-bg {
-    transform: scale(1);
-}
-
-.mars-future-overlay {
-    position: relative;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.75);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mars-future-content {
-    text-align: center;
-    max-width: 900px;
-    color: white;
-}
-
-.mars-future h2 {
-    font-size: 70px;
-    letter-spacing: 6px;
-    margin-bottom: 30px;
-    color: #ffffff;
-
-    text-shadow:
-        0 0 15px #d46e5f,
-        0 0 40px rgba(255,59,31,0.8);
-}
-
-.mars-future p {
-    font-size: 18px;
-    color: #ddd;
-    line-height: 1.7;
-    margin-bottom: 60px;
-}
-
-/* Stats */
-.mars-future-stats {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    flex-wrap: wrap;
-}
-
-.mars-future-stats h3 {
-    font-size: 32px;
-    color: #fefefe;
-    text-shadow:
-        0 0 15px #d46e5f,
-        0 0 40px rgba(255,59,31,0.8);
-}
-
-.mars-future-stats p {
-    font-size: 14px;
-    color: #ccc;
-}
-@media (max-width: 768px) {
-
-    /* HERO */
-    .mars-hero {
-        padding: 0 25px;
-        padding-top: 120px;
-        height: auto;
-        min-height: 100vh;
-    }
-
-    .mars-hero h1 {
-        font-size: 48px;
-        letter-spacing: 3px;
-    }
-
-    .mars-hero p {
-        font-size: 15px;
-    }
-
-    /* TIMELINE becomes single column */
-    .mars-timeline-vertical::before {
-        left: 20px;
-        transform: none;
-    }
-
-    .mars-timeline-block {
-        width: 100%;
-        padding-left: 60px;
-        padding-right: 20px;
-        text-align: left !important;
-        left: 0 !important;
-    }
-
-    .mars-timeline-block::before {
-        left: 8px !important;
-        right: auto !important;
-    }
-
-    /* FACTS */
-    .mars-fact-card {
-        width: 90%;
-    }
-
-    /* FUTURE */
-/* ===================== */
-/* MARS FUTURE SECTION  */
-/* ===================== */
-
-.mars-future {
-    position: relative;
-    min-height: 100vh;   /* IMPORTANT */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 20px;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
-
-/* Background Image */
-.mars-future img {
-    position: absolute;
-    inset: 0;               /* shorthand for top,left,right,bottom */
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;             /* keep it 0 */
-}
-
-/* Dark cinematic overlay */
-.mars-future::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 1;
-}
-
-/* Content must be above overlay */
-.mars-future-content {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .mars-future {
-        min-height: 80vh;   /* instead of auto */
-        padding: 100px 20px;
-    }
-
-    .mars-future-content h2 {
-        font-size: 32px;
-    }
-}
 }
