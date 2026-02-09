@@ -1021,6 +1021,10 @@ html {
 
 
 /* mars */
+/* ======================
+   MARS HERO
+====================== */
+
 .mars-hero {
     position: relative;
     height: 100vh;
@@ -1032,39 +1036,262 @@ html {
     background: #000;
 }
 
-/* Image styling */
 .mars-bg {
     position: absolute;
-    inset: 0;              /* replaces top/right */
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 1;
+    transform: scale(1.05);
+    transition: transform 6s ease;
 }
 
+.mars-hero:hover .mars-bg {
+    transform: scale(1);
+}
 
-/* Content */
 .mars-hero-content {
     position: relative;
-    z-index: 3;
-    max-width: 500px;
+    z-index: 2;
+    max-width: 600px;
     color: white;
 }
 
-/* Title */
 .mars-hero h1 {
-    font-size: 100px;
-    letter-spacing: 5px;
-    margin-bottom: 30px;
+    font-size: 110px;
+    letter-spacing: 8px;
+    color: #dccaca;
+
     text-shadow:
-        0 0 8px #ffffff,
-        0 0 15px #ffffff;
+        0 0 15px #d46e5f,
+        0 0 40px rgba(255,59,31,0.8);
 }
 
-/* Paragraph */
 .mars-hero p {
     font-size: 18px;
+    color: #ddd;
+    line-height: 1.7;
+}
+.mars-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        #000 100%
+    );
+    z-index: 2;
+}
+
+/* ======================
+   MARS MISSIONS
+====================== */
+
+.mars-missions {
+    background: #000;
+    padding: 160px 0;
+    text-align: center;
+    color: white;
+}
+
+.mars-missions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 280px);
+    justify-content: center;
+    gap: 50px;
+    margin-top: 80px;
+}
+
+.mars-mission-card {
+    background: #111;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s ease;
+}
+
+.mars-mission-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    opacity: 0.85;
+    transition: 0.4s ease;
+}
+
+.mars-mission-card:hover {
+    transform: translateY(-12px);
+    box-shadow:
+        0 0 25px rgba(255,59,31,0.6),
+        0 0 45px rgba(255,59,31,0.3);
+}
+
+.mars-mission-card:hover img {
+    opacity: 1;
+}
+
+.mars-mission-card h3 {
+    margin: 25px 20px 10px;
+    color: #f6f6f6;
+    text-shadow:
+        0 0 15px #d46e5f,
+        0 0 40px rgba(255,59,31,0.8);
+}
+
+.mars-mission-card p {
+    margin: 0 20px 25px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* =========================
+MARS TIMELINE
+========================= */
+
+.mars-timeline {
+    background: #000;
+    padding: 180px 0;
+    color: white;
+    text-align: center;
+}
+
+.mars-timeline-vertical {
+    max-width: 900px;
+    margin: 120px auto 0;
+    position: relative;
+}
+
+/* Red vertical energy line */
+.mars-timeline-vertical::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+    bottom: 40px;
+    width: 3px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,59,31,0.2),
+        rgba(255,59,31,0.9),
+        rgba(255,59,31,0.2)
+    );
+    box-shadow: 0 0 15px rgba(255,59,31,0.7);
+}
+
+/* Timeline blocks */
+.mars-timeline-block {
+    position: relative;
+    width: 50%;
+    padding: 40px 60px;
+}
+
+/* Left side */
+.mars-timeline-block:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+/* Right side */
+.mars-timeline-block:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* Red glowing nodes */
+.mars-timeline-block::before {
+    content: "";
+    position: absolute;
+    top: 60px;
+    width: 20px;
+    height: 20px;
+    background: #ff3b1f;
+    border-radius: 50%;
+    box-shadow:
+        0 0 25px rgba(255,59,31,0.6),
+        0 0 45px rgba(255,59,31,0.3);
+}
+
+/* Align nodes */
+.mars-timeline-block:nth-child(odd)::before {
+    right: -10px;
+}
+
+.mars-timeline-block:nth-child(even)::before {
+    left: -10px;
+}
+
+/* Year */
+.mars-timeline-block h3 {
+    font-size: 34px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow:
+        0 0 15px #d46e5f,
+        0 0 40px rgba(255,59,31,0.8);
+}
+
+/* Description */
+.mars-timeline-block p {
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.7;
+    max-width: 420px;
+}
+
+/* =========================
+   MARS FACTS
+========================= */
+
+.mars-facts {
+    background: #000;
+    padding: 160px 0;
+    text-align: center;
+    color: white;
+}
+
+.mars-facts-grid {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 280px);
+    justify-content: center;
+    gap: 50px;
+}
+
+/* Card */
+.mars-fact-card {
+    background: #111;
+    border: 1px solid #2a0f0f;
+    border-radius: 20px;
+    padding: 50px 30px;
+    transition: 0.5s ease;
+}
+
+/* Number / Main Text */
+.mars-fact-card h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow:
+        0 0 15px #d46e5f,
+        0 0 40px rgba(255,59,31,0.8);
+}
+
+/* Description */
+.mars-fact-card p {
+    font-size: 15px;
     color: #ccc;
     line-height: 1.6;
 }
 
+/* Hover Effect */
+.mars-fact-card:hover {
+    transform: translateY(-12px);
+    box-shadow:
+        0 0 25px rgba(255,59,31,0.6),
+        0 0 45px rgba(255,59,31,0.3);
+}
