@@ -2,85 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Missions Archive</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Landing Page -->
-     
-    <header class = "navbar">
-        <h1 class = "logo">SMA</h1>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#missions">Categories</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </header>
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>SPACE MISSIONS ARCHIVE</h1>
-            <p>Your gateway to the history of space exploration</p>
-        </div>
-    </section>
 
-    <!-- Missions -->
-
-    <section class="missions" id="missions">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
     <div class="container">
-        <h2 class="section-title">Categories</h2>
+        <a class="navbar-brand logo" href="#">SMA</a>
+
+        <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#missions">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>SPACE MISSIONS ARCHIVE</h1>
+        <p>Your gateway to the history of space exploration</p>
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="missions" id="missions">
+
+    <h2 class="section-title">Categories</h2>
 
     <div class="cards-container">
 
-        <div class="cards">
-            <a href="moon.html" class="cards">
+        <a href="moon.html" class="cards">
             <figure class="card">
                 <img src="images/moon1.jpg" alt="Moon">
                 <figcaption class="card_title">MOON</figcaption>
             </figure>
-            </a>
-        </div>
+        </a>
 
-        <div class="cards">
-            <a href="mars.html" class="cards">
+        <a href="mars.html" class="cards">
             <figure class="card">
-                <img src="images/mars.png" alt="Mars">
+                <img src="images/Mars.png" alt="Mars">
                 <figcaption class="card_title">Mars</figcaption>
             </figure>
-            </a>
-        </div>
+        </a>
 
-        <div class="cards">
-            <a href="deep_space.html" class="cards">
+        <a href="deep_space.html" class="cards">
             <figure class="card">
                 <img src="images/Deepspace.png" alt="Deep Space">
                 <figcaption class="card_title">Deep Space</figcaption>
             </figure>
-            </a>
-        </div>
+        </a>
 
-        <div class="cards">
-            <a href="space_station.html" class="cards">
+        <a href="space_station.html" class="cards">
             <figure class="card">
                 <img src="images/SpaceStation.png" alt="Space Station">
                 <figcaption class="card_title">Space Stations</figcaption>
             </figure>
-            </a>
-        </div>
+        </a>
 
-        <div class="cards">
-            <a href="private_space_era.html" class="cards">
+        <a href="private_space_era.html" class="cards">
             <figure class="card">
                 <img src="images/PrivateSpaceEra.png" alt="Private Space Era">
                 <figcaption class="card_title">Private Space Era</figcaption>
             </figure>
-            </a>
-        </div>
+        </a>
+
     </div>
 </section>
 
-<section class="timeline-section">
+<!-- timeline -->
+
+<section class="timeline-section" id = "timeline">
     <h2 class="section-title">Milestones in Space Exploration</h2>
 
     <div class="timeline-wrapper">
@@ -119,7 +134,10 @@
         </div>
     </div>
 </section>
-<section class="agencies-section">
+
+<!-- agencies -->
+
+<section class="agencies-section" id = "agencies">
     <h2 class="section-title">Major Space Agencies</h2>
 
     <div class="agencies-container">
@@ -150,6 +168,9 @@
 
     </div>
 </section>
+
+<!-- Future -->
+
 <section class="future-section">
     <h2 class="section-title">The Future of Space Exploration</h2>
 
@@ -179,6 +200,9 @@
         "The stars are not just lights in the sky. They are our future."
     </p>
 </section>
+
+<!-- footer -->
+
 <footer class="footer">
 
     <div class="footer-container">
@@ -193,8 +217,8 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#missions">Categories</a></li>
-                <li><a href="#">Timeline</a></li>
-                <li><a href="#">Agencies</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#agencies">Agencies</a></li>
             </ul>
         </div>
 
@@ -205,6 +229,6 @@
     </div>
 
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
