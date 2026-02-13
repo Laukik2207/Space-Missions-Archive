@@ -1072,16 +1072,20 @@ html {
 .deep-theme .timeline-block h3,
 .deep-theme .fact-card h3,
 .deep-theme .category-future h2 {
-    color: #00e5ff;
+    color: #ffffff;
+    /* justify-content: center; */
     text-shadow:
-        0 0 12px #00e5ff,
-        0 0 35px rgba(0,229,255,0.8);
+  0 0 2px #00BFFF,
+  0 0 5px #00BFFF,
+  0 0 20px #6C63FF,
+  0 0 40px #6C63FF;
+
 }
 
 .deep-theme .timeline-block::before {
-    background: #00e5ff;
+    background: #55a7e6;
     box-shadow:
-        0 0 15px #00e5ff,
+        0 0 15px #5a307a,
         0 0 35px rgba(0,229,255,0.8);
 }
 
@@ -1089,8 +1093,24 @@ html {
     background: linear-gradient(
         to bottom,
         rgba(0,229,255,0.2),
-        rgba(0,229,255,0.9),
+        rgba(81, 125, 214, 0.9),
         rgba(0,229,255,0.2)
     );
     box-shadow: 0 0 15px rgba(0,229,255,0.7);
+}
+.deep-theme .mission-card h3{
+    color: #ffffff;
+    /* justify-content: center; */
+    text-shadow:
+  0 0 2px #00BFFF,
+  0 0 5px #00BFFF,
+  0 0 20px #6C63FF,
+  0 0 40px #6C63FF;
+}
+
+.deep-theme .mission-card:hover{
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+        0 0 20px rgba(65, 110, 215, 0.3),
+        0 0 40px rgba(34, 116, 180, 0.15);
 }
